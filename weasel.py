@@ -69,7 +69,7 @@ while best_offspring != target:
     parent = best_offspring
 
     # Impressão do progresso
-    fitness = (len(target)-smallest_dif)/len(target)            # Aptidão do indivíduo mais apto
+    fitness = (len(target)-smallest_dif)/len(target)            # Aptidão do indivíduo mais parecido com o alvo
     result_string = ""
     for pos in range(len(target)):
         if best_offspring[pos] == target[pos]:
