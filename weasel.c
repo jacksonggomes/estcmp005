@@ -18,22 +18,22 @@ int irand(int n)
 }
  
 /* número de caracteres diferentes entre a e b */
-int unfitness(const char *a, const char *b)
+int unfitness(const char *ancestral, const char *prole)
 {
 	int i, sum = 0;
-	for (i = 0; a[i]; i++)
-		sum += (a[i] != b[i]);
+	for (i = 0; ancestral[i]; i++)
+		sum += (ancestral[i] != prole[i]);
 	return sum;
 }
  
 /* cada caractere de b tem 1 / MUTATE de chance de diferir de a */
-void mutate(const char *ancestral, char *mutacao)
+void mutate(const char *ancestral, char *prole)
 {
 	int i;
 	for (i = 0; ancestral[i]; i++)
-		mutacao[i] = irand(MUTATE) ? ancestral[i] : tbl[irand(CHOICE)];
+		prole[i] = irand(MUTATE) ? ancestral[i] : tbl[irand(CHOICE)];
  
-	mutacao[i] = '\0';
+	prole[i] = '\0';
 }
  
 int main (int argc, char** argv)
